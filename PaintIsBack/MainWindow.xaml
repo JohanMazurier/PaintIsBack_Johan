@@ -1,0 +1,40 @@
+﻿<Window x:Class="PaintIsBack.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PaintIsBack"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid x:Name="window" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="MenuPanel" Grid.Row="0"  Orientation="Horizontal" Background="AliceBlue" >
+            <StackPanel x:Name="ThicknessSelectorPanel" Orientation="Vertical" Width="70">
+                <Label HorizontalContentAlignment="Center" Margin="3,8,3,0" Content="Épaisseur :"/>
+                <ComboBox x:Name="ThicknessSelector" Margin="3,8,3,5" SelectedIndex="0" SelectionChanged="ThicknessSelector_SelectionChanged" Height="25">
+                    <ComboBoxItem x:Name="Thickness_1" Content="1 px"/>
+                    <ComboBoxItem x:Name="Thickness_2" Content="2 px"/>
+                    <ComboBoxItem x:Name="Thickness_3" Content="3 px"/>
+                    <ComboBoxItem x:Name="Thickness_4" Content="4 px"/>
+                    <ComboBoxItem x:Name="Thickness_5" Content="5 px"/>
+                </ComboBox>
+                
+            </StackPanel>
+        </StackPanel>
+        <Grid Grid.Row="1" Background="White" x:Name="container" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Canvas x:Name="Canvas" HorizontalAlignment="Left" Height="{Binding ElementName=container, Path=ActualHeight}" Width="{Binding ElementName=container, Path=ActualWidth}" VerticalAlignment="Top"  Background="White" MouseLeftButtonDown="Canvas_MouseLeftButtonDown" MouseMove="Canvas_MouseMove" />
+        </Grid>
+    </Grid>
+</Window>
